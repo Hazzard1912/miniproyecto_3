@@ -8,7 +8,7 @@ package actores;
  */
 public class Administrador {
     private final String nombreUsuario = "admin";
-    private final String contrasena = "1234";
+    private final char[] contrasena = {'1', '2', '3', '4'};
     
     /**
      * Crea que el administrador simulando tener los datos para hacer la 
@@ -29,7 +29,7 @@ public class Administrador {
      * Retorna la contrasena
      * @return el valor de contrasena
      */
-    public String getContrasena() {
+    public char[] getContrasena() {
         return contrasena;
     }
 }
