@@ -6,7 +6,7 @@ package actores;
  */
 public class Persona {
     private String nombre;
-    private int dni;
+    private final int dni;
     
     /**
      * Crea una persona y setea los atributos nombrey dni.
@@ -41,13 +41,4 @@ public class Persona {
     public int getDni() {
         return dni;
     }
-    
-    /**
-     * Asigna el valor del parametro al atributo dni
-     * @param dni el valor a asignarle al atributo dni
-     */
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-    
 }

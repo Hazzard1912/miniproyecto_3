@@ -16,4 +16,21 @@ public class Administrador {
      */
     public Administrador() {
     }
+    
+    /**
+     * Retorna el nombre de usuario
+     * @return el valor de nombreUsuario
+     */
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+    
+    /**
+     * Retorna la contrasena
+     * @return el valor de contrasena
+     */
+    public String getContrasena() {
+        return contrasena;
+    }
+    
 }

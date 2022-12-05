@@ -83,7 +83,6 @@ public class GestionMedicos implements IGestionDatos{
             medico = listaMedicos.get(clave);
             archivoCsv += medico.getNombre() + ";" + medico.getDni() + ";" + medico.getIdMedico()+ ";" + medico.isEstado() + ";" + "\n";
         }
-        //byte [] byteArray = archivoCsv.getBytes();
         try {
             /**
              * Metodo para la persistencia de datos en forma de archivo binario:

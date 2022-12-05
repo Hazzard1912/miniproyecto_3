@@ -85,7 +85,6 @@ public class GestionAfiliados implements IGestionDatos{
             afiliado = listaAfiliados.get(clave);
             archivoCsv += afiliado.getNombre() + ";" + afiliado.getDni() + ";" + afiliado.getIdAfiliado() + ";" + afiliado.isEstado() + ";" + "\n";
         }
-        //byte [] byteArray = archivoCsv.getBytes();
         try {
             /**
              * Metodo para la persistencia de datos en forma de archivo binario:

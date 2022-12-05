@@ -2,7 +2,7 @@ package actores;
 
 /**
  * Interfaz que define los metodos necesarios para realizar el manejo 
- * CRUD de la gestion de afiliados.
+ * CRUD de la gestion de datos.
  * @author Jhonnier Hernandez
  */
 
