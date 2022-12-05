@@ -32,5 +32,4 @@ public class Administrador {
     public String getContrasena() {
         return contrasena;
     }
-    
 }

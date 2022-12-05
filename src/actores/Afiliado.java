@@ -72,5 +72,4 @@ public class Afiliado extends Persona{
     public String toString() {
         return "Afiliado{" + "nombre=" + this.getNombre() + ", dni=" + this.getDni() + ", idAfiliado=" + idAfiliado + ", estado=" + estado + '}';
     }
-
 }
