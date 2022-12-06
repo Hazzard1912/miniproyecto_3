@@ -66,7 +66,7 @@ public class GestionConsultorios implements IGestionDatos{
         
         String nombre = JOptionPane.showInputDialog("ingrese el nombre del consultorio a eliminar");
         boolean existe = false;
-        int posicion = 0;
+        int posicion;
         for(var consultorio : consultorios){
             if((consultorio.getNombre()).equals(nombre)){
                 existe = true;
@@ -103,7 +103,6 @@ public class GestionConsultorios implements IGestionDatos{
     @Override
     public void generarCSV() {
         
-        Afiliado afiliado;
         String archivoCsv = "";
         for (var consultorio : consultorios) {
             archivoCsv += consultorio.getNombre() + ";" + consultorio.isDisponibilidad()+ ";" + "\n";

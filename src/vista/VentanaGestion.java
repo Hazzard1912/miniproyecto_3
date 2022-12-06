@@ -188,7 +188,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             case 3 -> {
                 switch(opcion2){
                     case 0 -> gestionServicios.agregar();
-                    case 1 -> gestionServicios.listar();
+                    case 1 -> jTextArea1.setText(gestionServicios.listar());
                     case 2 -> gestionServicios.actualizar();
                     case 3 -> gestionServicios.eliminar();
                     case 4 -> gestionServicios.generarCSV();
