@@ -39,8 +39,16 @@ public class GestionMedicos implements IGestionDatos{
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del medico a agregar");
         String dni = JOptionPane.showInputDialog("ingrese el dni del medico a agregar");
         int intDni = Integer.parseInt(dni);
-        Medico medico = new Medico(nombre, intDni);
-        listaMedicos.put(medico.getIdMedico(), medico);
+        int especialista = JOptionPane.showConfirmDialog(null, "Es un especialista?");
+        if(especialista == 0){
+            String especialidad = JOptionPane.showInputDialog("que especialidad tiene el medico?");
+            Especialista medicoEspecialista = new Especialista(nombre, intDni, especialidad);
+            listaMedicos.put(intDni, medicoEspecialista);
+        } else {
+            Medico medico = new Medico(nombre, intDni);
+            listaMedicos.put(medico.getIdMedico(), medico);
+        }
+        
     }
     
     /**
@@ -66,6 +74,7 @@ public class GestionMedicos implements IGestionDatos{
      */
     @Override
     public String listar(){
+        
         String cadena = "";
         for(int clave : listaMedicos.keySet()){
             Medico medico = listaMedicos.get(clave);
@@ -99,6 +108,7 @@ public class GestionMedicos implements IGestionDatos{
      */
     @Override
     public void generarCSV(){
+        
         Medico medico;
         String archivoCsv = "";
         for (int clave:listaMedicos.keySet()) {

@@ -36,4 +36,11 @@ public class Especialista extends Medico {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
+    @Override
+    public String toString() {
+        return "Especialista{" + "nombre=" + getNombre() + ", dni=" + getDni() + ", idMedico=" + getIdMedico() + ", estado=" + isEstado() + ", especialidad=" + especialidad + '}';
+    }
+    
+    
 }

@@ -7,8 +7,6 @@ package testPrograma;
 
 import actores.*;
 import java.util.Calendar;
-import java.util.Date;
-import vista.VentanaInicial;
 
 public class testeoPrograma {
 
