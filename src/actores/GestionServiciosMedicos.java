@@ -2,6 +2,7 @@ package actores;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Clase que modela los servicios medicos que prestara la entidad
@@ -19,7 +20,10 @@ public class GestionServiciosMedicos implements IGestionDatos{
      */
     @Override
     public void agregar() {
-        
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Que servicio medico desea agregar: ");
+        String servicio = scanner.nextLine();
+        serviciosMedicos.add(servicio);
     }
     
     /**
@@ -45,6 +49,10 @@ public class GestionServiciosMedicos implements IGestionDatos{
         for(var servicio : serviciosMedicos){
             System.out.println(servicio);
         }
+    }
+    
+    public String seleccionarServicio(int seleccion){
+        return serviciosMedicos.get(seleccion);
     }
     
     /**

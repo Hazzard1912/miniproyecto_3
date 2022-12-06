@@ -50,5 +50,10 @@ public class Consultorio {
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
+
+    @Override
+    public String toString() {
+        return "Consultorio{" + "nombre=" + nombre + ", disponibilidad=" + disponibilidad + '}';
+    }
     
 }
