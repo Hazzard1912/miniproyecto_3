@@ -1,14 +1,11 @@
 package actores;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,12 +17,14 @@ import javax.swing.JOptionPane;
  */
 
 public class GestionAfiliados implements IGestionDatos{
+    
     private Map <Integer, Afiliado> listaAfiliados;
     
     /**
      * Se inicializa el atributo listaAfiliados como un HashMap.
      */
     public GestionAfiliados(){
+        
         listaAfiliados = new HashMap<>();
     }
     
@@ -36,7 +35,7 @@ public class GestionAfiliados implements IGestionDatos{
      */
     @Override
     public void agregar(){
-        //
+        
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario a afiliar");
         String dni = JOptionPane.showInputDialog("ingrese el dni del usuario a afiliar");
         int intDni = Integer.parseInt(dni);
@@ -45,25 +44,29 @@ public class GestionAfiliados implements IGestionDatos{
     }
     
     /**
-     * Actualiza los valores para nombreAfiliado y dniAfiliado del parametro.
-     * @param afiliado el objeto a ser actualizado.
+     * Actualiza los valores para nombreAfiliado del afiliado con el id que se
+     * haya suministrado.
      */
     @Override
     public void actualizar(){
-//        Crea la ventana que solicita el id del afiliado a actualizar.
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Digite el nombre del afiliado: ");
-//        afiliado.setNombre(sc.nextLine());
-//        System.out.println("digite el dni del afiliado: ");
-//        afiliado.setDni(sc.nextInt());    
+        
+        String id = JOptionPane.showInputDialog("ingrese el id del afiliado a actualizar");
+        int intId = Integer.parseInt(id);
+        if(listaAfiliados.containsKey(intId)){
+            String nombre = JOptionPane.showInputDialog("ingrese el nuevo nombre del afiliado");
+            (listaAfiliados.get(intId)).setNombre(nombre);
+        } else {
+            JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de afiliados");
+        }
     }
     
     /**
-     * Imprime en consola todo el Map listaAfiliados, con lo cual lista todos
-     * los afiliados contenidos.
+     * Retorna un String con todos los afiliados contenidos en listAfiliados
+     * @return los datos de cada afiliado en el atributo listaAfiliados
      */
     @Override
     public String listar(){
+        
         String cadena = "";
         for(int clave : listaAfiliados.keySet()){
             Afiliado afiliado = listaAfiliados.get(clave);
@@ -73,19 +76,31 @@ public class GestionAfiliados implements IGestionDatos{
     }
     
     /**
-     * Cambia el estado del parametro a false, y lo elimina de listaAfiliados,
-     * con lo cual se entiende que el afiliado esta inactivo.
-     * @param afiliado el objeto a ser eliminado.
+     * Cambia el estado del atributo estado del afiliado a false, y lo elimina 
+     * de listaAfiliados, con lo cual se entiende que el afiliado esta inactivo.
      */
     @Override
     public void eliminar(){
-//        Crea la ventana que solicita el id del afiliado a eliminar
-//        listaAfiliados.remove(afiliado.getIdAfiliado());
-//        afiliado.setEstado(false);
+        
+        String id = JOptionPane.showInputDialog("ingrese el id del afiliado a eliminar");
+        int intId = Integer.parseInt(id);
+        
+        if(listaAfiliados.containsKey(intId)){
+            (listaAfiliados.get(intId)).setEstado(false);
+            listaAfiliados.remove(intId);
+        } else {
+            JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de afiliados o el id ingresado es incorrecto");
+        }
     }
     
+    /**
+     * Genera el archivo csv con los datos basicos de los afiliados, separados
+     * por punto y coma (;) para la persistencia de los datos. el formato del
+     * archivo es: nombre - dni - id - estado
+     */
     @Override
     public void  generarCSV(){
+        
         Afiliado afiliado;
         String archivoCsv = "";
         for (int clave:listaAfiliados.keySet()) {
@@ -100,6 +115,7 @@ public class GestionAfiliados implements IGestionDatos{
             System.out.println("Comenzando a copiar...");
             int aux;
             os.write(archivoCsv.getBytes());
+            System.out.println("Copiado con exito!");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

@@ -1,0 +1,4 @@
+a;1;1;true;
+b;2;2;true;
+c;3;3;true;
+d;4;4;true;

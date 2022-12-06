@@ -6,9 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * GestionMedicos contiene solo un atributo de tipo Map, en el cual se van a almacenar
@@ -17,43 +17,52 @@ import java.util.logging.Logger;
  */
 
 public class GestionMedicos implements IGestionDatos{
+    
     private Map <Integer, Medico> listaMedicos;
     
     /**
      * Se inicializa el atributo listaMedicos como un HashMap.
      */
     public GestionMedicos(){
+        
         listaMedicos = new HashMap<>();
     }
     
     
     /**
-     * Agrega medico a listaAfiliados y lo relaciona con su id en el Map.
-     * @param medico es el objeto a ser agregado.
+     * Crea la ventana donde se obtienen los datos para crear un Medico y lo 
+     * agrega a listaMedicos.
      */
     @Override
     public void agregar(){
-//        Crea la ventana donde captura los datos para crear un medico a agregar
-//        listaMedicos.put(medico.getIdMedico(), medico);
+        
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del medico a agregar");
+        String dni = JOptionPane.showInputDialog("ingrese el dni del medico a agregar");
+        int intDni = Integer.parseInt(dni);
+        Medico medico = new Medico(nombre, intDni);
+        listaMedicos.put(medico.getIdMedico(), medico);
     }
     
     /**
-     * Actualiza los valores para nombreMedico y dniMedico del parametro.
-     * @param medico el objeto a ser actualizado.
+     * Actualiza los valores para nombreMedico del medico con el id que se
+     * haya suministrado.
      */
     @Override
     public void actualizar(){
-//        Crea la ventana donde solicita el id y los datos a actualizar
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Digite el nombre del medico: ");
-//        medico.setNombre(sc.nextLine());
-//        System.out.println("digite el dni del medico: ");
-//        medico.setDni(sc.nextInt());    
+        
+        String id = JOptionPane.showInputDialog("ingrese el id del medico a actualizar");
+        int intId = Integer.parseInt(id);
+        if(listaMedicos.containsKey(intId)){
+            String nombre = JOptionPane.showInputDialog("ingrese el nuevo nombre del medico");
+            (listaMedicos.get(intId)).setNombre(nombre);
+        } else {
+            JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de medicos");
+        }
     }
     
     /**
-     * Imprime en consola todo el Map listaMedicos, con lo cual lista todos
- los GestionMedicos contenidos.
+     * Retorna un String con todos los medicos contenidos en listMedicos
+     * @return los datos de cada medico en el atributo listaMedicos
      */
     @Override
     public String listar(){
@@ -66,17 +75,28 @@ public class GestionMedicos implements IGestionDatos{
     }
     
     /**
-     * Cambia el estado del parametro a false, y lo elimina de listaMedicos,
-     * con lo cual se entiende que el afiliado esta inactivo.
-     * @param medico el objeto a ser eliminado.
+     * Cambia el estado del atributo estado del medico a false, y lo elimina 
+     * de listaMedicos, con lo cual se entiende que el medico esta inactivo.
      */
     @Override
     public void eliminar(){
-//        Crea la ventana donde solicita el id del medico a eliminar
-//        listaMedicos.remove(medico.getIdMedico());
-//        medico.setEstado(false);
+
+        String id = JOptionPane.showInputDialog("ingrese el id del medico a eliminar");
+        int intId = Integer.parseInt(id);
+        
+        if(listaMedicos.containsKey(intId)){
+            (listaMedicos.get(intId)).setEstado(false);
+            listaMedicos.remove(intId);
+        } else {
+            JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de medicos o el id ingresado es incorrecto");
+        }
     }
     
+    /**
+     * Genera el archivo csv con los datos basicos de los medicos, separados
+     * por punto y coma (;) para la persistencia de los datos. el formato del
+     * archivo es: nombre - dni - id - estado
+     */
     @Override
     public void generarCSV(){
         Medico medico;

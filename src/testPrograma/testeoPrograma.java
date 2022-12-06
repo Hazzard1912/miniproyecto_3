@@ -20,7 +20,7 @@ public class testeoPrograma {
         Consultorio consultorio = new Consultorio("Laboratorio 1", true);
         Calendar cal = Calendar.getInstance();
         cal.set(2022, 11, 6, 11, 30);
-        CitaMedica cita = new CitaMedica(afiliado,serviciosMedicos.seleccionarServicio(0),medico,consultorio,cal);
+        CitaMedica cita = new CitaMedica(afiliado,serviciosMedicos.seleccionarServicio(),medico,consultorio,cal);
         System.out.println("cita = " + cita);
     }
 }

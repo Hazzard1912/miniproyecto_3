@@ -7,8 +7,10 @@ package vista;
 import actores.*;
 
 /**
- *
- * @author PC
+ * Esta va a ser la ventana en la que se enlace la logica de manejo de datos y 
+ * el resultado en pantalla que debe obtener el usuario que interactue con el 
+ * software
+ * @author Jhonnier Hernandez
  */
 public class VentanaGestion extends javax.swing.JFrame {
 
@@ -166,7 +168,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             case 1 -> {
                 switch(opcion2){
                     case 0 -> gestionMedicos.agregar();
-                    case 1 -> gestionMedicos.listar();
+                    case 1 -> jTextArea1.setText(gestionMedicos.listar());
                     case 2 -> gestionMedicos.actualizar();
                     case 3 -> gestionMedicos.eliminar();
                     case 4 -> gestionMedicos.generarCSV();
@@ -176,7 +178,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             case 2 -> {
                 switch(opcion2){
                     case 0 -> gestionConsultorios.agregar();
-                    case 1 -> gestionConsultorios.listar();
+                    case 1 -> jTextArea1.setText(gestionConsultorios.listar());
                     case 2 -> gestionConsultorios.actualizar();
                     case 3 -> gestionConsultorios.eliminar();
                     case 4 -> gestionConsultorios.generarCSV();
