@@ -201,12 +201,15 @@ public class VentanaInicial extends javax.swing.JFrame {
      * @param usuario es el valor que ingresa el usuario en el campo jTextFieldAdministrador
      * @param contrasena es el valor que ingresa el usuario en el campo jPasswordField
      */
-    private static void compararCredenciales(String usuario, char[] contrasena){
+    private void compararCredenciales(String usuario, char[] contrasena){
         if(usuario.equals(administrador.getNombreUsuario()) && Arrays.equals(contrasena, administrador.getContrasena())){
             for(int i = 0; i < usuario.length() - 1; i++){
                 contrasena[i] = '0';
             }
             System.out.println("las credenciales son correctas");
+            VentanaGestion ventanaGestion = new VentanaGestion();
+            ventanaGestion.setVisible(true);
+            this.dispose();
             
         } else {
             JOptionPane.showMessageDialog(null, "Error al validar los datos ingresados", "Contraseña/Usuario incorrecto", 1);

@@ -11,6 +11,6 @@ public interface IGestionDatos {
     public void agregar();
     public void actualizar();
     public void eliminar();
-    public void listar();
+    public String listar();
     public void generarCSV();
 }

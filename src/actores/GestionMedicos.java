@@ -56,11 +56,13 @@ public class GestionMedicos implements IGestionDatos{
  los GestionMedicos contenidos.
      */
     @Override
-    public void listar(){
+    public String listar(){
+        String cadena = "";
         for(int clave : listaMedicos.keySet()){
             Medico medico = listaMedicos.get(clave);
-            System.out.println(medico);
+            cadena += medico + "\n";
         }
+        return cadena;
     }
     
     /**

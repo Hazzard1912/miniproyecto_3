@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * GestionAfiliados contiene solo un atributo de tipo Map, en el cual se van a almacenar
@@ -30,13 +31,17 @@ public class GestionAfiliados implements IGestionDatos{
     
     
     /**
-     * Agrega afiliado a listaAfiliados y lo relaciona con su id en el Map.
-     * @param afiliado es el objeto a ser agregado.
+     * Crea la ventana donde se obtienen los datos para crear un Afiliado y lo 
+     * agrega a listaAfiliados.
      */
     @Override
     public void agregar(){
-        //Crea la ventana donde se obtienen los datos para crear un Afiliado.
-        //listaAfiliados.put(afiliado.getIdAfiliado(), afiliado);
+        //
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del usuario a afiliar");
+        String dni = JOptionPane.showInputDialog("ingrese el dni del usuario a afiliar");
+        int intDni = Integer.parseInt(dni);
+        Afiliado afiliado = new Afiliado(nombre, intDni);
+        listaAfiliados.put(afiliado.getIdAfiliado(), afiliado);
     }
     
     /**
@@ -58,11 +63,13 @@ public class GestionAfiliados implements IGestionDatos{
      * los afiliados contenidos.
      */
     @Override
-    public void listar(){
+    public String listar(){
+        String cadena = "";
         for(int clave : listaAfiliados.keySet()){
             Afiliado afiliado = listaAfiliados.get(clave);
-            System.out.println(afiliado);
+            cadena += afiliado + "\n";
         }
+        return cadena;
     }
     
     /**

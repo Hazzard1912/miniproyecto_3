@@ -45,10 +45,12 @@ public class GestionServiciosMedicos implements IGestionDatos{
      * Crea la ventana que lista los servicios medicos que presta la entidad.
      */
     @Override
-    public void listar() {
+    public String listar() {
+        String cadena = "";
         for(var servicio : serviciosMedicos){
-            System.out.println(servicio);
+            cadena += servicio + "\n";
         }
+        return cadena;
     }
     
     public String seleccionarServicio(int seleccion){

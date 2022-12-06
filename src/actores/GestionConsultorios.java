@@ -35,10 +35,12 @@ public class GestionConsultorios implements IGestionDatos{
     }
 
     @Override
-    public void listar() {
+    public String listar() {
+        String cadena = "";
         for(var consultorio : consultorios){
-            System.out.println(consultorio);
+            cadena += consultorio + "\n";
         }
+        return cadena;
     }
 
     @Override
