@@ -135,6 +135,11 @@ public class GestionServiciosMedicos implements IGestionDatos{
         } catch (IOException ex) {
             Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    @Override
+    public void restaurarDatos(){
         
     }
     

@@ -1,0 +1,5 @@
+jonnier;123;1;true;
+isa;321;2;true;
+stefa;456;3;false;
+jei;789;4;true;
+cata;987;5;false;

@@ -123,4 +123,9 @@ public class GestionConsultorios implements IGestionDatos{
         }
     }
     
+    
+    @Override
+    public void restaurarDatos(){
+        
+    }
 }

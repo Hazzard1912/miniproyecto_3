@@ -1,11 +1,15 @@
 package actores;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -120,6 +124,57 @@ public class GestionAfiliados implements IGestionDatos{
             Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    /**
+     * El metodo tiene como funcion restaurar los datos llenando el atributo
+     * listaAfiliados con los datos almacenados en afiliados_csv.txt
+     */
+    @Override
+    public void restaurarDatos(){
+        
+        File archivo = new File("src/persistencia/afiliados_csv.txt");
+        StringTokenizer st;
+        String cadenaDatos = "";
+        try {
+            FileReader fr = new FileReader(archivo);
+            try (BufferedReader br = new BufferedReader(fr)) {
+                
+                String cadena;
+                while((cadena = br.readLine())!=null){
+                    
+                    cadenaDatos += cadena;
+                    st = new StringTokenizer(cadena,";");
+                    if (st.countTokens() % 4 == 0 && st.countTokens() != 0) {
+                        
+                        System.out.println("cadena:" + cadena);
+                        System.out.println("tokens en cadena: " + st.countTokens());
+                        String nombre = st.nextToken();
+                        int dni = Integer.parseInt(st.nextToken());
+                        int id = Integer.parseInt(st.nextToken());
+                        boolean estado;
+                        String token =st.nextToken();
+                        estado = Boolean.parseBoolean(token);
+                        System.out.println("Creando y cargando afiliado...");
+                        Afiliado afiliado = new Afiliado(nombre, dni);
+                        afiliado.setIdAfiliado(id);
+                        afiliado.setEstado(estado);
+                        listaAfiliados.put(afiliado.getIdAfiliado(), afiliado);
+                        System.out.println("afiliado cargado con exito!");
+                    } 
+                }
+                System.out.println("Se han cargado todos los datos exitosamente");
+            }
+        }
+         catch (FileNotFoundException ex) {
+            Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GestionAfiliados.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            System.out.println("Los datos contenidos en afiliados_csv son: \n" + cadenaDatos);
+            System.out.println("la lista de afiliados resultante es: " + listaAfiliados);
         }
     }
 }

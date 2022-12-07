@@ -13,4 +13,5 @@ public interface IGestionDatos {
     public void eliminar();
     public String listar();
     public void generarCSV();
+    public void restaurarDatos();
 }

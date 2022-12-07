@@ -20,7 +20,9 @@ public class VentanaGestion extends javax.swing.JFrame {
     public VentanaGestion() {
         initComponents();
         gestionAfiliados = new GestionAfiliados();
+        gestionAfiliados.restaurarDatos();
         gestionMedicos = new GestionMedicos();
+        gestionMedicos.restaurarDatos();
         gestionConsultorios = new GestionConsultorios();
         gestionServicios = new GestionServiciosMedicos();
         jTextArea1.setEditable(false);
