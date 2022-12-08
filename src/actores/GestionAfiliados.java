@@ -2,7 +2,6 @@ package actores;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -70,8 +69,7 @@ public class GestionAfiliados implements IGestionDatos{
      */
     @Override
     public String listar(){
-        
-        String cadena = "";
+        String cadena = "---------- Afiliados ----------\n";
         for(int clave : listaAfiliados.keySet()){
             Afiliado afiliado = listaAfiliados.get(clave);
             cadena += afiliado + "\n";
@@ -92,6 +90,7 @@ public class GestionAfiliados implements IGestionDatos{
         if(listaAfiliados.containsKey(intId)){
             (listaAfiliados.get(intId)).setEstado(false);
             listaAfiliados.remove(intId);
+            JOptionPane.showMessageDialog(null, "afiliado eliminado con exito del registro de afiliados");
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de afiliados o el id ingresado es incorrecto");
         }
@@ -117,7 +116,6 @@ public class GestionAfiliados implements IGestionDatos{
              */
             FileOutputStream os = new FileOutputStream(new File("src/persistencia/afiliados_csv.txt"));
             System.out.println("Comenzando a copiar...");
-            int aux;
             os.write(archivoCsv.getBytes());
             System.out.println("Copiado con exito!");
         } catch (FileNotFoundException ex) {
@@ -149,8 +147,6 @@ public class GestionAfiliados implements IGestionDatos{
                     st = new StringTokenizer(cadena,";");
                     if (st.countTokens() % 4 == 0 && st.countTokens() != 0) {
                         
-                        System.out.println("cadena:" + cadena);
-                        System.out.println("tokens en cadena: " + st.countTokens());
                         String nombre = st.nextToken();
                         int dni = Integer.parseInt(st.nextToken());
                         int id = Integer.parseInt(st.nextToken());
@@ -176,5 +172,15 @@ public class GestionAfiliados implements IGestionDatos{
             System.out.println("Los datos contenidos en afiliados_csv son: \n" + cadenaDatos);
             System.out.println("la lista de afiliados resultante es: " + listaAfiliados);
         }
+    }
+    
+    /**
+     * Retorna el afiliado contenido en listaAfiliados, en la llave idAfiliado.
+     * @param idAfiliado es la llave en la cual esta almacenado el afiliado que se 
+     * desea acceder.
+     * @return el afiliaod contenido en listaAfiliados.get(idAfiliado)
+     */
+    public Afiliado getAfiliado(int idAfiliado){
+        return listaAfiliados.get(idAfiliado);
     }
 }

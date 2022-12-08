@@ -72,13 +72,12 @@ public class GestionMedicos implements IGestionDatos {
 
     /**
      * Retorna un String con todos los medicos contenidos en listMedicos
-     *
      * @return los datos de cada medico en el atributo listaMedicos
      */
     @Override
     public String listar() {
-
-        String cadena = "";
+        
+        String cadena = "---------- Medicos ----------\n";
         for (int clave : listaMedicos.keySet()) {
             var medico = listaMedicos.get(clave);
             cadena += medico + "\n";
@@ -99,6 +98,7 @@ public class GestionMedicos implements IGestionDatos {
         if (listaMedicos.containsKey(intId)) {
             (listaMedicos.get(intId)).setEstado(false);
             listaMedicos.remove(intId);
+            JOptionPane.showMessageDialog(null, "medico eliminido con exito del registro de medicos");
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la lista de medicos o el id ingresado es incorrecto");
         }
@@ -127,7 +127,6 @@ public class GestionMedicos implements IGestionDatos {
              */
             FileOutputStream os = new FileOutputStream(new File("src/persistencia/medicos_csv.txt"));
             System.out.println("Comenzando a copiar...");
-            int aux;
             os.write(archivoCsv.getBytes());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GestionMedicos.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,5 +189,15 @@ public class GestionMedicos implements IGestionDatos {
             System.out.println("Los datos contenidos en medicos_csv son: \n" + cadenaDatos);
             System.out.println("la lista de medicos resultante es: " + listaMedicos);
         }
+    }
+    
+    /**
+     * Retorna el medico contenido en listaMedicos, en la llave idMedico.
+     * @param idMedico es la llave en la cual esta almacenado el medico que se 
+     * desea acceder.
+     * @return el medico contenido en listaMedicos.get(idMedico)
+     */
+    public Medico getMedico(int idMedico){
+        return listaMedicos.get(idMedico);
     }
 }

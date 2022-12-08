@@ -24,7 +24,11 @@ public class VentanaGestion extends javax.swing.JFrame {
         gestionMedicos = new GestionMedicos();
         gestionMedicos.restaurarDatos();
         gestionConsultorios = new GestionConsultorios();
+        gestionConsultorios.restaurarDatos();
         gestionServicios = new GestionServiciosMedicos();
+        gestionServicios.restaurarDatos();
+        gestionCitas = new GestionCitas();
+        ventanaHora = new VentanaHora();
         jTextArea1.setEditable(false);
     }
 
@@ -60,7 +64,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxOpciones1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGREGAR", "LISTAR", "ACTUALIZAR", "ELIMINAR", "CSV", " " }));
+        jComboBoxOpciones1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AGREGAR", "LISTAR", "ACTUALIZAR", "ELIMINAR", "CSV" }));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -80,7 +84,7 @@ public class VentanaGestion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnOk)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,7 +99,7 @@ public class VentanaGestion extends javax.swing.JFrame {
                             .addComponent(btnOk)
                             .addComponent(jComboBoxOpciones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -199,78 +203,27 @@ public class VentanaGestion extends javax.swing.JFrame {
             
             case 4 -> {
                 switch(opcion2){
-                    case 0 -> jTextArea1.setText("agregar cita medica");
-                    case 1 -> jTextArea1.setText("listar citas medicas");
-                    case 2 -> jTextArea1.setText("actualizar cita medica");
-                    case 3 -> jTextArea1.setText("eliminar cita medica");
-                    case 4 -> jTextArea1.setText("crear SVC citas medicas");
+                    case 0 -> gestionCitas.agregar(gestionAfiliados, gestionServicios,
+                            gestionMedicos, gestionConsultorios);
+                    case 1 -> gestionCitas.listar();
+                    case 2 -> jTextArea1.setText("no implementado");
+                    case 3 -> gestionCitas.eliminar();
+                    case 4 -> gestionCitas.generarCSV();
                 }
             }
         }
     }
     private void accionEjecutada(){
-        //jTextArea1.setEnabled(false);
         opcion1 = jComboBoxOpciones.getSelectedIndex();
         opcion2 = jComboBoxOpciones1.getSelectedIndex();
-        
-        switch(jComboBoxOpciones.getSelectedIndex()){
-            case 0 -> {
-                switch(jComboBoxOpciones1.getSelectedIndex()){
-                    case 0 -> jTextArea1.setText("agregar afiliado");
-                    case 1 -> jTextArea1.setText("listar afiliados");
-                    case 2 -> jTextArea1.setText("actualizar afiliado");
-                    case 3 -> jTextArea1.setText("eliminar afiliado");
-                    case 4 -> jTextArea1.setText("crear SVC afiliados");
-                }
-            }
-                
-            case 1 -> {
-                switch(jComboBoxOpciones1.getSelectedIndex()){
-                    case 0 -> jTextArea1.setText("agregar medico");
-                    case 1 -> jTextArea1.setText("listar medicos");
-                    case 2 -> jTextArea1.setText("actualizar medico");
-                    case 3 -> jTextArea1.setText("eliminar medico");
-                    case 4 -> jTextArea1.setText("crear SVC medicos");
-                }
-            }
-                
-            case 2 -> {
-                switch(jComboBoxOpciones1.getSelectedIndex()){
-                    case 0 -> jTextArea1.setText("agregar consultorio");
-                    case 1 -> jTextArea1.setText("listar consultorios");
-                    case 2 -> jTextArea1.setText("actualizar consultorio");
-                    case 3 -> jTextArea1.setText("eliminar consultorio");
-                    case 4 -> jTextArea1.setText("crear SVC consultorios");
-                }
-            }
-                
-            case 3 -> {
-                switch(jComboBoxOpciones1.getSelectedIndex()){
-                    case 0 -> jTextArea1.setText("agregar servicio medico");
-                    case 1 -> jTextArea1.setText("listar servicios medicos");
-                    case 2 -> jTextArea1.setText("actualizar servicio medico");
-                    case 3 -> jTextArea1.setText("eliminar servicio medico");
-                    case 4 -> jTextArea1.setText("crear SVC servicios medicos");
-                }
-            }
-            
-            case 4 -> {
-                switch(jComboBoxOpciones1.getSelectedIndex()){
-                    case 0 -> jTextArea1.setText("agregar cita medica");
-                    case 1 -> jTextArea1.setText("listar citas medicas");
-                    case 2 -> jTextArea1.setText("actualizar cita medica");
-                    case 3 -> jTextArea1.setText("eliminar cita medica");
-                    case 4 -> jTextArea1.setText("crear SVC citas medicas");
-                }
-            }
-        }
     }
     
-    
+    private VentanaHora ventanaHora;
     private GestionServiciosMedicos gestionServicios;
     private GestionConsultorios gestionConsultorios;
     private GestionMedicos gestionMedicos;
     private GestionAfiliados gestionAfiliados;
+    private GestionCitas gestionCitas;
     private int opcion1;
     private int opcion2;
     // Variables declaration - do not modify//GEN-BEGIN:variables

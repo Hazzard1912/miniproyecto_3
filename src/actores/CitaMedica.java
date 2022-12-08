@@ -71,6 +71,15 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "CitaMedica\n" + "afiliado=" + afiliado + "\n servicioMedico=" + servicioMedico + "\n medico=" + medico + "\n consultorio=" + consultorio + "\n fechaYHora=" + fechaYHora.getTime();
+        return "CitaMedica\n" + afiliado + "\nservicio = " + servicioMedico + "\n" + medico + "\n" + consultorio + "\nfechaYHora = " + fechaYHora.getTime();
     }
+    
+    /**
+     * modifica la fecha de la cita.
+     * @param fechaYHora es el nuevo valor que debe tener el atributo fechaYHora
+     */
+    public void setFechaYHora(Calendar fechaYHora) {
+        this.fechaYHora = fechaYHora;
+    }
+    
 }

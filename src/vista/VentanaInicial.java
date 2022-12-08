@@ -5,7 +5,6 @@
 package vista;
 
 import actores.Administrador;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -20,6 +19,7 @@ public class VentanaInicial extends javax.swing.JFrame {
      */
     public VentanaInicial() {
         initComponents();
+        administrador = new Administrador();
     }
 
     /**
@@ -187,7 +187,6 @@ public class VentanaInicial extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         /* Create and display the form */
-        administrador = new Administrador();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -203,7 +202,7 @@ public class VentanaInicial extends javax.swing.JFrame {
      */
     private void compararCredenciales(String usuario, char[] contrasena){
         if(usuario.equals(administrador.getNombreUsuario()) && Arrays.equals(contrasena, administrador.getContrasena())){
-            for(int i = 0; i < usuario.length() - 1; i++){
+            for(int i = 0; i < contrasena.length; i++){
                 contrasena[i] = '0';
             }
             System.out.println("las credenciales son correctas");
