@@ -44,20 +44,18 @@ public class GestionCitas {
         String servicio = JOptionPane.showInputDialog("Ingrese el numero del servicio medico que precisa el afiliado");
         String idMedico = JOptionPane.showInputDialog("Ingrese el id del medico que atendera la cita");
         String consultorio = JOptionPane.showInputDialog("Ingrese el numero del consultorio donde tendra lugar la cita");
-        //Aqui crear la ventana para obtener los datos de año, fecha y hora para crear el Calendar correctamente...
-        
-        //Aqui hay un error, porque la variable no se inicializa con el valor actualizado de la variable estatica de VentanaHora
-        
         Calendar cal = VentanaHora.cal;
-        System.out.println("cal = " + cal);
-        System.out.println("Creando cita...");
-        //Validar los datos
-        CitaMedica cita = new CitaMedica(gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado)), 
+        if(citasMedicas.containsKey(Integer.valueOf(idAfiliado))){
+            JOptionPane.showMessageDialog(null, "El afiliado ya tiene una cita registrada");
+        } else {
+            System.out.println("Creando cita...");
+            CitaMedica cita = new CitaMedica(gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado)), 
                 gestionServicios.getServicio(Integer.parseInt(servicio)), gestionMedicos.getMedico(Integer.parseInt(idMedico)),
                 gestionConsultorios.getConsultorio(Integer.parseInt(consultorio)), cal);
-        System.out.println("cita generada con exito");
-        System.out.println("cita = " + cita);
-        citasMedicas.put((gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado(), cita);
+            System.out.println("cita generada con exito");
+            System.out.println("cita = " + cita);
+            citasMedicas.put((gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado(), cita);
+        }
     }
     
     /**
@@ -116,11 +114,6 @@ public class GestionCitas {
     }
 
     public void restaurarDatos() {
+        
     }
-    
-    private void agregarHora(){
-        VentanaHora ventanaHora = new VentanaHora();
-        ventanaHora.setVisible(true);
-    }
-    
 }
