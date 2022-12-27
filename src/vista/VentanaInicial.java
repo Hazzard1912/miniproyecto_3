@@ -39,7 +39,6 @@ public class VentanaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion SME Univalle");
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(640, 360));
         setSize(new java.awt.Dimension(640, 360));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,7 +63,7 @@ public class VentanaInicial extends javax.swing.JFrame {
         });
 
         jPasswordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField.setText("jPasswordField1");
+        jPasswordField.setText("1234");
         jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordFieldMouseClicked(evt);

@@ -7,7 +7,7 @@ package actores;
  * @author Jhonnier Hernandez
  */
 public class Administrador {
-    private final String nombreUsuario = "admin";
+    private final String nombreUsuario = "Admin";
     private final char[] contrasena = {'1', '2', '3', '4'};
     
     /**
