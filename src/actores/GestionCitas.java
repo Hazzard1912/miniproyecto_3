@@ -51,7 +51,7 @@ public class GestionCitas {
             System.out.println("Creando cita...");
             CitaMedica cita = new CitaMedica(gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado)), 
                 gestionServicios.getServicio(Integer.parseInt(servicio)), gestionMedicos.getMedico(Integer.parseInt(idMedico)),
-                gestionConsultorios.getConsultorio(Integer.parseInt(consultorio)), cal);
+                gestionConsultorios.getConsultorio(Integer.parseInt(consultorio)-1), cal);
             System.out.println("cita generada con exito");
             System.out.println("cita = " + cita);
             citasMedicas.put((gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado(), cita);

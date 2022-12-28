@@ -1,2 +1,1 @@
-a;radiologia;b;loa;
-d;cardiologia;a;lao;
+a;radiologia;b;3;

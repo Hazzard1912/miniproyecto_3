@@ -35,7 +35,7 @@ public class GestionConsultorios implements IGestionDatos{
     @Override
     public void agregar() {
         
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del consultorio a agregar");
+        String nombre = JOptionPane.showInputDialog("Ingrese el numero del consultorio a agregar");
         boolean estado = true;
         Consultorio consultorio = new Consultorio(nombre, estado);
         consultorios.add(consultorio);
@@ -48,14 +48,14 @@ public class GestionConsultorios implements IGestionDatos{
     @Override
     public void actualizar() {
         
-        String nombre = JOptionPane.showInputDialog("ingrese el nombre del consultorio a actualizar");
+        String nombre = JOptionPane.showInputDialog("ingrese el numero del consultorio a actualizar");
         boolean existe = false;
         int posicion;
         for(var consultorio : consultorios){
             if((consultorio.getNombre()).equals(nombre)){
                 existe = true;
                 posicion = consultorios.indexOf(consultorio);
-                String nuevoNombre = JOptionPane.showInputDialog("ingrese el nuevo nombre del consultorio");
+                String nuevoNombre = JOptionPane.showInputDialog("ingrese el nuevo numero del consultorio");
                 (consultorios.get(posicion)).setNombre(nuevoNombre);
             }
         }
@@ -71,7 +71,7 @@ public class GestionConsultorios implements IGestionDatos{
     @Override
     public void eliminar() {
         
-        String nombre = JOptionPane.showInputDialog("ingrese el nombre del consultorio a eliminar");
+        String nombre = JOptionPane.showInputDialog("ingrese el numero del consultorio a eliminar");
         boolean existe = false;
         int posicion;
         for(var consultorio : consultorios){

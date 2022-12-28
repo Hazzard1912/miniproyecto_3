@@ -1,2 +1,3 @@
-loa;true;
-lao;false;
+1;true;
+2;false;
+3;true;

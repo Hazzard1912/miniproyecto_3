@@ -6,7 +6,7 @@ package actores;
  * @author Jhonnier Hernandez
  */
 public class Consultorio {
-    private String nombre;
+    private String numero;
     private boolean disponibilidad;
     
     /**
@@ -15,7 +15,7 @@ public class Consultorio {
      * @param disponibilidad es el valor a asignar al atributo disponibilidad
      */
     public Consultorio(String nombre, boolean disponibilidad) {
-        this.nombre = nombre;
+        this.numero = nombre;
         this.disponibilidad = disponibilidad;
     }
     
@@ -24,7 +24,7 @@ public class Consultorio {
      * @return el valor de nombre
      */
     public String getNombre() {
-        return nombre;
+        return numero;
     }
     
     /**
@@ -32,7 +32,7 @@ public class Consultorio {
      * @param nombre es el valor a asignar al atributo nombre
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.numero = nombre;
     }
     
     /**
@@ -53,7 +53,7 @@ public class Consultorio {
 
     @Override
     public String toString() {
-        return "Consultorio{" + "nombre=" + nombre + ", disponibilidad=" + disponibilidad + '}';
+        return "Consultorio{" + "numero=" + numero + ", disponibilidad=" + disponibilidad + '}';
     }
     
 }
