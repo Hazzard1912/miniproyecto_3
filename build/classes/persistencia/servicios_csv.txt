@@ -1,3 +1,2 @@
 cardiologia;
 radiologia;
-analisis de sangre;

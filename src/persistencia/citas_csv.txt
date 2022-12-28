@@ -1,1 +1,2 @@
-afiliado;radiologia;a;loa;
+a;radiologia;b;loa;
+d;cardiologia;a;lao;

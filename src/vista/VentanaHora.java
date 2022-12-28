@@ -110,6 +110,7 @@ public class VentanaHora extends javax.swing.JFrame {
         accionEjecutada();
         obtenerHora();
         this.dispose();
+        ventanaAbierta = false;
     }//GEN-LAST:event_btnOkMouseClicked
 
     /**
@@ -172,9 +173,18 @@ public class VentanaHora extends javax.swing.JFrame {
         opcion4 = jComboHora.getSelectedIndex();
         opcion5 = jComboMinutos.getSelectedIndex();
     }
+    
+    public void abrirVentana(){
+        ventanaAbierta = true;
+    }
+    
+    public boolean verSiVentanaEstaAbierta(){
+        return ventanaAbierta;
+    }
 
     private int opcion1, opcion2, opcion3, opcion4, opcion5;
     public static Calendar cal = Calendar.getInstance();
+    private boolean ventanaAbierta = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
     private javax.swing.JComboBox<String> jComboAnio;

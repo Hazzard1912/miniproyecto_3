@@ -5,6 +5,9 @@
 package vista;
 
 import actores.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  * Esta va a ser la ventana en la que se enlace la logica de manejo de datos y 
@@ -30,6 +33,17 @@ public class VentanaGestion extends javax.swing.JFrame {
         gestionCitas = new GestionCitas();
         ventanaHora = new VentanaHora();
         jTextArea1.setEditable(false);
+        
+        contador = new Timer(100, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (ventanaHora.verSiVentanaEstaAbierta()) {
+                    
+                } else {
+                    contador.stop();
+                    gestionCitas.agregar(gestionAfiliados, gestionServicios, gestionMedicos, gestionConsultorios);
+                }
+            }
+        });
     }
 
     /**
@@ -229,8 +243,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             
             case 4 -> {
                 switch(opcion2){
-                    case 0 -> gestionCitas.agregar(gestionAfiliados, gestionServicios,
-                            gestionMedicos, gestionConsultorios);
+                    case 0 -> {ventanaHora.abrirVentana(); contador.start(); ventanaHora.setVisible(true);}
                     case 1 -> gestionCitas.listar();
                     case 2 -> jTextArea1.setText("no implementado");
                     case 3 -> gestionCitas.eliminar();
@@ -252,6 +265,7 @@ public class VentanaGestion extends javax.swing.JFrame {
     private GestionCitas gestionCitas;
     private int opcion1;
     private int opcion2;
+    private Timer contador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnOk1;
