@@ -147,13 +147,13 @@ public class GestionMedicos implements IGestionDatos {
         String cadenaDatos = "";
         try {
             FileReader fr = new FileReader(archivo);
-            try ( BufferedReader br = new BufferedReader(fr)) {
+            try (BufferedReader br = new BufferedReader(fr)) {
                 
                 String cadena;
-                while ((cadena = br.readLine()) != null) {
+                while ((cadena = br.readLine()) != null){
                     
                     cadenaDatos += cadena;
-                    st = new StringTokenizer(cadena, ";");
+                    st = new StringTokenizer(cadena,";");
                     if (st.countTokens() % 5 == 0 && st.countTokens() != 0) {
                         String nombre = st.nextToken();
                         int dni = Integer.parseInt(st.nextToken());

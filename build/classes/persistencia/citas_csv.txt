@@ -1,2 +1,0 @@
-b;cardiologia;b;3;
-c;radiologia;a;1;

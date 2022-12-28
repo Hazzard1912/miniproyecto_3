@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/actores/Administrador.java</file>
-            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/vista/VentanaInicial.java</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/actores/GestionAfiliados.java</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/persistencia/citas_csv.txt</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/actores/CitaMedica.java</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/vista/VentanaGestion.java</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/actores/GestionCitas.java</file>
+            <file>file:/C:/Users/juanc/Desktop/Codigos%20Java/Propios/Miniproyecto%203/miniproyecto_3/src/actores/Afiliado.java</file>
         </group>
     </open-files>
 </project-private>

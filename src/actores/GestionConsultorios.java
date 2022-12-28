@@ -148,7 +148,6 @@ public class GestionConsultorios implements IGestionDatos{
                     cadenaDatos += cadena;
                     st = new StringTokenizer(cadena,";");
                     if (st.countTokens() % 2 == 0 && st.countTokens() != 0) {
-                        
                         String nombre = st.nextToken();
                         boolean estado;
                         String token =st.nextToken();

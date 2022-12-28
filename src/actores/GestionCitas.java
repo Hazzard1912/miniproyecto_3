@@ -1,12 +1,15 @@
 package actores;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -52,10 +55,9 @@ public class GestionCitas {
             CitaMedica cita = new CitaMedica(gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado)), 
                 gestionServicios.getServicio(Integer.parseInt(servicio)), gestionMedicos.getMedico(Integer.parseInt(idMedico)),
                 gestionConsultorios.getConsultorio(Integer.parseInt(consultorio)-1), cal);
-            System.out.println("cita generada con exito");
-            System.out.println("cita = " + cita);
+//            System.out.println("cita generada con exito");
+//            System.out.println("cita = " + cita);
             citasMedicas.put((gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado(), cita);
-            System.out.println("XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + (gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado());
         }
     }
     
@@ -115,7 +117,28 @@ public class GestionCitas {
         }
     }
 
+//    @Override
     public void restaurarDatos() {
         
+//        File archivo = new File("src/persistencia/citas_csv.txt");
+//        StringTokenizer st;
+//        String cadenaDatos = "";
+//        try{
+//            FileReader fr = new FileReader(archivo);
+//            try (BufferedReader br = new BufferedReader(fr)) {
+//                
+//                String cadena;
+//                while ((cadena = br.readLine()) != null){
+//                    
+//                    cadenaDatos += cadena;
+//                    st = new StringTokenizer(cadena,";");
+//                    if (st.countTokens() % 6 == 0 && st.countTokens() != 0) {
+//                        String nombre = st.nextToken();
+//                        
+//                    }
+//                }
+//                
+//            }
+//        }
     }
 }

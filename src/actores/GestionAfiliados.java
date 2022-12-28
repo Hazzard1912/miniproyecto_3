@@ -141,12 +141,11 @@ public class GestionAfiliados implements IGestionDatos{
             try (BufferedReader br = new BufferedReader(fr)) {
                 
                 String cadena;
-                while((cadena = br.readLine())!=null){
+                while ((cadena = br.readLine()) != null){
                     
                     cadenaDatos += cadena;
                     st = new StringTokenizer(cadena,";");
                     if (st.countTokens() % 4 == 0 && st.countTokens() != 0) {
-                        
                         String nombre = st.nextToken();
                         int dni = Integer.parseInt(st.nextToken());
                         int id = Integer.parseInt(st.nextToken());
