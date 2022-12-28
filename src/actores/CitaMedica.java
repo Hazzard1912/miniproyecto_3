@@ -71,7 +71,8 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "CitaMedica\n" + afiliado + "\nservicio = " + servicioMedico + "\n" + medico + "\n" + consultorio + "\nfechaYHora = " + fechaYHora.getTime();
+        return "CitaMedica{" + "Nombre de afiliado: "+ afiliado.getNombre() + "; Servicio: " + servicioMedico + "; Medico: " + medico.getNombre() + "; Numero de consultorio: " + consultorio.getNumero() + "; fechaYHora: " + fechaYHora.getTime() + "}";
+//        return "hola mundo cruel";
     }
     
     /**

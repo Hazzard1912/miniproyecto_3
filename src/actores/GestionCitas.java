@@ -55,6 +55,7 @@ public class GestionCitas {
             System.out.println("cita generada con exito");
             System.out.println("cita = " + cita);
             citasMedicas.put((gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado(), cita);
+            System.out.println("XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + (gestionAfiliados.getAfiliado(Integer.parseInt(idAfiliado))).getIdAfiliado());
         }
     }
     
@@ -83,7 +84,8 @@ public class GestionCitas {
     public String listar() {
         String cadena = "---------- Citas ----------\n";
         for(int clave : citasMedicas.keySet()){
-            var cita = citasMedicas.get(clave);
+            CitaMedica cita = citasMedicas.get(clave);
+//            var cita = citasMedicas.get(clave);
             cadena += cita + "\n";
         }
         return cadena;
@@ -93,10 +95,10 @@ public class GestionCitas {
         
         CitaMedica cita;
         String archivoCsv = "";
-        for (int clave:citasMedicas.keySet()) {
+        for (int clave : citasMedicas.keySet()) {
             cita = citasMedicas.get(clave);
             archivoCsv += (cita.getAfiliado()).getNombre() + ";" + cita.getServicioMedico() + ";" + (cita.getMedico()).getNombre() 
-                    + ";" + (cita.getConsultorio()).getNombre()+ ";" + "\n";
+                    + ";" + (cita.getConsultorio()).getNumero()+ ";" + "\n";
         }
         try {
             /**

@@ -52,7 +52,7 @@ public class GestionConsultorios implements IGestionDatos{
         boolean existe = false;
         int posicion;
         for(var consultorio : consultorios){
-            if((consultorio.getNombre()).equals(nombre)){
+            if((consultorio.getNumero()).equals(nombre)){
                 existe = true;
                 posicion = consultorios.indexOf(consultorio);
                 String nuevoNombre = JOptionPane.showInputDialog("ingrese el nuevo numero del consultorio");
@@ -75,7 +75,7 @@ public class GestionConsultorios implements IGestionDatos{
         boolean existe = false;
         int posicion;
         for(var consultorio : consultorios){
-            if((consultorio.getNombre()).equals(nombre)){
+            if((consultorio.getNumero()).equals(nombre)){
                 existe = true;
                 posicion = consultorios.indexOf(consultorio);
                 consultorios.remove(posicion);
@@ -111,7 +111,7 @@ public class GestionConsultorios implements IGestionDatos{
         
         String archivoCsv = "";
         for (var consultorio : consultorios) {
-            archivoCsv += consultorio.getNombre() + ";" + consultorio.isDisponibilidad()+ ";" + "\n";
+            archivoCsv += consultorio.getNumero() + ";" + consultorio.isDisponibilidad()+ ";" + "\n";
         }
         try {
             /**

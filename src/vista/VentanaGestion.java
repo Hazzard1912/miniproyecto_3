@@ -244,7 +244,7 @@ public class VentanaGestion extends javax.swing.JFrame {
             case 4 -> {
                 switch(opcion2){
                     case 0 -> {ventanaHora.abrirVentana(); contador.start(); ventanaHora.setVisible(true);}
-                    case 1 -> gestionCitas.listar();
+                    case 1 -> jTextArea1.setText(gestionCitas.listar());
                     case 2 -> jTextArea1.setText("no implementado");
                     case 3 -> gestionCitas.eliminar();
                     case 4 -> gestionCitas.generarCSV();

@@ -23,7 +23,7 @@ public class Consultorio {
      * Retorna el nombre del consultorio
      * @return el valor de nombre
      */
-    public String getNombre() {
+    public String getNumero() {
         return numero;
     }
     
